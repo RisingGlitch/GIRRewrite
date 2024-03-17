@@ -41,7 +41,10 @@ class Xp(commands.Cog):
             return
 
         user = user_service.get_user(id=message.author.id)
-        if user.is_xp_frozen or user.is_clem:
+        if user.is_xp_frozen:
+            return
+
+        if user.is_clem:
             return
 
         xp_to_add = randint(0, 11)
